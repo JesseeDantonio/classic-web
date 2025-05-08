@@ -6,6 +6,7 @@
         </div>
         <div class="d-cards">
             <div class="d-card">
+                <div class="d-ribbon">Populaire</div>
                 <div class="card-content">
                     <div class="inner">
                         <p class="title">Premium</p>
@@ -81,6 +82,17 @@
                                 </span>
                                 <span>Entretien programmé</span>
                             </li>
+                            <li>
+                                <span class="icon">
+                                    <svg height="24" width="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M0 0h24v24H0z" fill="none"></path>
+                                        <path fill="currentColor"
+                                            d="M10 15.172l9.192-9.193 1.415 1.414L10 18l-6.364-6.364 1.414-1.414z">
+                                        </path>
+                                    </svg>
+                                </span>
+                                <span>Accès à des salons vocaux privés</span>
+                            </li>
                         </ul>
                         <div class="action">
                             <a class="button" href="#">
@@ -108,6 +120,21 @@ defineProps({
     color: black;
     margin-top: 1vh;
     margin-bottom: 6vh;
+}
+
+.d-ribbon {
+  position: absolute;
+  top: 25px;
+  left: -39px;
+  transform: rotate(-45deg);
+  background-color: #db0000;
+  color: white;
+  padding: 5px 45px;
+  font-size: 1.00rem;
+  font-weight: bold;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+  z-index: 2;
+  pointer-events: none;
 }
 
 .d-card .inner {
