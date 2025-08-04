@@ -77,6 +77,8 @@ defineProps({
     margin-top: 4vh;
     display: flex;
     justify-content: space-around;
+
+    flex-wrap: wrap;
 }
 
 .d-card {
@@ -130,11 +132,6 @@ defineProps({
 }
 
 @media screen and (max-width: 900px) {
-    .d-cards {
-        flex-direction: column;
-        margin-left: 5vh;
-    }
-
     .d-card {
         margin-bottom: 4vh;
     }

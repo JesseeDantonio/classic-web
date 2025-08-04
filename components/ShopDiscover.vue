@@ -47,7 +47,7 @@
                             </li>
                         </ul>
                         <div class="action">
-                            <a class="button" href="#">
+                            <a @click="handleCheckout('Premium', 390)" class="button" href="#">
                                 3.90 €
                             </a>
                         </div>
@@ -80,7 +80,7 @@
                                         </path>
                                     </svg>
                                 </span>
-                                <span>Entretien programmé</span>
+                                <span>Entretien programmé avec le développeur</span>
                             </li>
                             <li>
                                 <span class="icon">
@@ -95,7 +95,7 @@
                             </li>
                         </ul>
                         <div class="action">
-                            <a class="button" href="#">
+                            <a @click="handleCheckout('Premium Plus', 990)" class="button" href="#">
                                 9.90 €
                             </a>
                         </div>
@@ -112,6 +112,26 @@ defineProps({
     title: String,
     description: String,
 });
+
+import { loadStripe } from '@stripe/stripe-js';
+
+const config = useRuntimeConfig();
+const publishableKey = config.public.stripePublishableKey;
+
+const stripePromise = loadStripe(publishableKey || '');
+
+const handleCheckout = async (name, amount) => {
+  const res = await $fetch('/api/checkout-session', {
+    method: 'POST',
+    body: {
+      name: name,
+      amount: amount,
+    },
+  });
+
+  const stripe = await stripePromise;
+  await stripe.redirectToCheckout({ sessionId: res.id });
+};
 </script>
 
 <style scoped>
@@ -142,7 +162,7 @@ defineProps({
   flex-direction: column;
   justify-content: space-between; /* bouton en bas */
   padding: 20px;
-  padding-top: 40px;
+  padding-top: 3vh;
   background: #FAFAFA;
   border-radius: 12px;
   position: relative;
@@ -193,13 +213,14 @@ defineProps({
     justify-content: center;
     color: #fff;
     border-radius: 50%;
-    width: 20px;
-    height: 20px;
+    width: 24px;
+    height: 24px;
+    flex-shrink: 0
 }
 
 .d-card .features .icon svg {
-    width: 14px;
-    height: 14px;
+    width: 16px;
+    height: 16px;
 }
 
 .d-card .features+* {
@@ -225,7 +246,7 @@ defineProps({
     width: 100%;
     padding: 0.625em 0.75em;
     text-decoration: none;
-    margin-top: 8rem;
+    margin-top: 1.5rem;
 }
 
 .d-card .button:hover,
@@ -238,6 +259,7 @@ defineProps({
     display: flex;
     justify-content: center;
     gap: 4vh;
+    flex-wrap: wrap;
 }
 
 .d-card {
@@ -268,15 +290,8 @@ defineProps({
 }
 
 @media screen and (max-width: 900px) {
-    .d-cards {
-        flex-direction: column;
-        margin-left: 5vh;
-    }
-
     .d-card {
         margin-bottom: 4vh;
     }
-
-
 }
 </style>
