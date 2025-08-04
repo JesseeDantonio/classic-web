@@ -6,8 +6,7 @@
         </div>
         <div class="d-cards">
             <div class="d-card">
-                <img src=""
-                    alt="image">
+                <img src="../assets/img/zombie_break.png" alt="image">
                 <div class="card-content">
                     <h2>
                         Card Heading
@@ -19,13 +18,40 @@
                 </div>
             </div>
             <div class="d-card">
-                <img src="" alt="image">
+                <img src="../assets/img/araignée_boule_de_neige.png" alt="image">
+                <div class="card-content">
+                    <h2>
+                        Card Heading
+                    </h2>
+                    <p>
+                        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nesciunt exercitationem iste,
+                        voluptatum, quia explicabo laboriosam rem adipisci voluptates cumque.
+                    </p>
+                </div>
             </div>
             <div class="d-card">
-                <img src="" alt="image">
+                <img src="../assets/img/creeper_charger.png" alt="image">
+                <div class="card-content">
+                    <h2>
+                        Card Heading
+                    </h2>
+                    <p>
+                        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nesciunt exercitationem iste,
+                        voluptatum, quia explicabo laboriosam rem adipisci voluptates cumque.
+                    </p>
+                </div>
             </div>
             <div class="d-card">
-                <img src="" alt="image">
+                <img src="../assets/img/coffres_parachute.png" alt="image">
+                <div class="card-content">
+                    <h2>
+                        Card Heading
+                    </h2>
+                    <p>
+                        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nesciunt exercitationem iste,
+                        voluptatum, quia explicabo laboriosam rem adipisci voluptates cumque.
+                    </p>
+                </div>
             </div>
         </div>
     </section>
@@ -34,8 +60,8 @@
 <script setup>
 
 defineProps({
-  title: String,
-  description: String,
+    title: String,
+    description: String,
 });
 </script>
 
@@ -77,7 +103,30 @@ defineProps({
 
     &:hover {
         transform: scale(1.05);
+
+        .card-content {
+            visibility: visible;
+        }
     }
+}
+
+.card-content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+    display: flex;
+    visibility: hidden;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 2rem;
+    background: linear-gradient(0deg, rgba(0, 0, 0, 0.7) 50%, rgba(0, 0, 0, 0) 100%);
+    color: white;
+    text-shadow: 0 1px 6px #000;
+    box-sizing: border-box;
 }
 
 @media screen and (max-width: 900px) {
@@ -89,7 +138,5 @@ defineProps({
     .d-card {
         margin-bottom: 4vh;
     }
-
-
 }
 </style>
