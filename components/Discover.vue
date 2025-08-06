@@ -135,5 +135,9 @@ defineProps({
     .d-card {
         margin-bottom: 4vh;
     }
+
+    .card-content {
+        visibility: visible;
+    }
 }
 </style>
