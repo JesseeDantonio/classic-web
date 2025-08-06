@@ -3,7 +3,11 @@
         <div class="b-cols">
             <div class="b-titleSection">
                 <h3>{{ title }}</h3>
-                <p class="">{{ description }}</p>
+                <div class="ip-container">
+                    <button @click="copier" class="copy-btn">
+                        {{ copied ? "Copié !" : "classicstudiohub.fr" }}
+                    </button>
+                </div>
             </div>
         </div>
     </section>
@@ -12,15 +16,24 @@
 <script setup>
 
 defineProps({
-  title: String,
-  description: String,
+    title: String,
+    description: String,
 });
+
+const ip = "classicstudiohub.fr"
+const copied = ref(false)
+
+function copier() {
+    navigator.clipboard.writeText(ip)
+    copied.value = true
+    setTimeout(() => copied.value = false, 1000)
+}
 </script>
 
 
 <style scoped>
 .banner {
-    background: linear-gradient(90deg, #FF9800,  #FFC107);
+    background: linear-gradient(90deg, #FF9800, #FFC107);
     /* Dégradé moderne */
     padding: 20px 0;
     margin-top: 1vh;
@@ -35,8 +48,8 @@ defineProps({
 
 .b-titleSection {
     text-align: center;
-    color: #FFFFFF;
     /* Texte blanc pour le contraste */
+    color: white;
 }
 
 .b-titleSection h3 {
@@ -46,9 +59,39 @@ defineProps({
 }
 
 .b-titleSection p {
-    font-size: 1rem;
+    font-size: 1.5rem;
     /* Taille du paragraphe */
-    color: #F5F5F5;
-    /* Gris clair pour le texte */
+}
+
+.ip-container {
+    display: inline-flex;
+    align-items: center;
+    background: #fff9c4;
+    padding: 8px 16px;
+    border-radius: 6px;
+    font-size: 1.1rem;
+    font-family: monospace;
+    color: #ef9800;
+    font-weight: bold;
+}
+
+.ip-text {
+    user-select: all;
+    /* Permet la sélection manuelle si besoin */
+}
+
+.copy-btn {
+    border: none;
+    color: black;
+    border-radius: 4px;
+    background: #fff9c4;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 1.5rem;
+    transition: background 0.2s;
+}
+
+.ip-container:hover {
+    transform: scale(1.05);
 }
 </style>
