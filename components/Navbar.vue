@@ -66,7 +66,10 @@ onUnmounted(() => {
 .navbar .logo {
     font-size: x-large;
     font-style: italic;
-    background-color: transparent;
+    background-color: white;
+    border-radius: 10px;
+    padding-left: 1vh;
+    padding-right: 1vh;
 }
 
 .logo-classic,
@@ -91,6 +94,8 @@ onUnmounted(() => {
 .nav-links ul {
     display: flex;
     list-style: none;
+    background-color: white;
+    border-radius: 10px;
 }
 
 .nav-links ul li {
