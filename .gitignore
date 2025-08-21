@@ -1,5 +1,6 @@
 # Nuxt dev/build outputs
 .output
+assets
 .data
 .nuxt
 .nitro
@@ -22,3 +23,5 @@ logs
 .env
 .env.*
 !.env.example
+
+.nvmrc
