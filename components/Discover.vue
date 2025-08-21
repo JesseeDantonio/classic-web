@@ -9,7 +9,7 @@
                 <img src="../assets/img/zombie_break.png" alt="image">
                 <div class="card-content">
                     <h2>
-                        Card Heading
+                        BlockBreaker
                     </h2>
                     <p>
                         Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nesciunt exercitationem iste,
@@ -21,7 +21,7 @@
                 <img src="../assets/img/araignée_boule_de_neige.png" alt="image">
                 <div class="card-content">
                     <h2>
-                        Card Heading
+                        SpiderShooter
                     </h2>
                     <p>
                         Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nesciunt exercitationem iste,
@@ -33,7 +33,7 @@
                 <img src="../assets/img/creeper_charger.png" alt="image">
                 <div class="card-content">
                     <h2>
-                        Card Heading
+                        SmartCreeper
                     </h2>
                     <p>
                         Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nesciunt exercitationem iste,
@@ -45,7 +45,7 @@
                 <img src="../assets/img/coffres_parachute.png" alt="image">
                 <div class="card-content">
                     <h2>
-                        Card Heading
+                        RandomChest
                     </h2>
                     <p>
                         Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nesciunt exercitationem iste,

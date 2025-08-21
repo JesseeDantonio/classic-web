@@ -108,8 +108,9 @@ defineProps({
 .p-img {
     grid-column: 2;
     grid-row: 1 / 3;
-    background-image: url(@/assets/img/1347935.png);
-    background-position: center;
+    background-image: url(@/assets/img/presentation.png);
+    background-position: bottom;
+    background-repeat: no-repeat;
     background-size: cover;
     border-radius: 10px;
 }
@@ -131,7 +132,7 @@ defineProps({
     .p-img {
         grid-column: 1;
         grid-row: 2;
-        background-image: url(@/assets/img/1347935.png);
+        background-image: url(@/assets/img/presentation.png);
         width: 100%;
         height: 20vh;
     }

@@ -19,6 +19,17 @@
 
 :root {
     --bg-primary: #FFC300;
+    --bg: #ffffff;
+    --text: #111827;
+    --muted: #6b7280;
+    --primary: #ff9800;
+    --primary-2: #ffc107;
+    --success: #10b981;
+    --ring: rgba(255, 152, 0, 0.35);
+    --card-bg: #fafafa;
+    --radius: 14px;
+    --shadow-sm: 0 2px 8px rgba(0, 0, 0, .06);
+    --shadow-md: 0 10px 30px rgba(0, 0, 0, .12);
 }
 
 .layout main {
