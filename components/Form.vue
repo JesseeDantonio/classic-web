@@ -25,7 +25,6 @@
 import { ref } from 'vue'
 import { loadStripe } from '@stripe/stripe-js'
 import { useRouter } from 'vue-router'
-import type { Plan } from '~/iface/Plan';
 import { onMounted } from 'vue';
 import { PriceCalculator } from '~/server/class/PriceCalculator';
 
@@ -62,7 +61,6 @@ const isLoading = ref(false)
 
 const handleCheckout = async (name: string, months: number) => {
   if (!(await Promise.resolve(window.confirm('Confirmer pour continuer !')))) return
-  alert(config.public?.stripePublishableKey)
   if (!plan.value || !selected.value) {
     goToShop()
     return
@@ -104,7 +102,7 @@ try {
 } catch (e: any) {
   console.error(e)
   const msg = e?.data?.statusMessage || e?.data?.message || e?.message || 'Erreur inconnue'
-  alert(`Impossible de démarrer le paiement. ${msg}`)
+  alert(`Impossible de démarrer le paiement. ${e}`)
 } finally {
   isLoading.value = false
 }
