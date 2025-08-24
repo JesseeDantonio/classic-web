@@ -11,4 +11,4 @@ FROM node:20-alpine
 WORKDIR /app
 COPY --from=build-stage /app ./
 EXPOSE 3000
-CMD ["npm", "run", "start"]
+CMD ["node", ".output/server/index.mjs"]
