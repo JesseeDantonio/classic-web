@@ -4,7 +4,7 @@ import Stripe from 'stripe';
 export default defineEventHandler(async (event) => {
   const config = useRuntimeConfig();
   const secretKey = config.stripeSecretKey;
-  const baseUrl = config.public?.baseUrl;
+  const baseUrl = config.public?.baseUrlTest;
 
   if (!secretKey) {
     throw createError({ statusCode: 500, statusMessage: 'Missing STRIPE_SECRET_KEY' });
