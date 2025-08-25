@@ -102,7 +102,7 @@ try {
 } catch (e: any) {
   console.error(e)
   const msg = e?.data?.statusMessage || e?.data?.message || e?.message || 'Erreur inconnue'
-  alert(`Impossible de démarrer le paiement. ${e}`)
+  alert(`Impossible de démarrer le paiement. ${msg}`)
 } finally {
   isLoading.value = false
 }
