@@ -57,7 +57,7 @@ export default defineEventHandler(async (event) => {
       const pseudo = session.metadata?.pseudo?.trim();
       const planKey = session.metadata?.planKey?.trim();
       const monthsRaw = session.metadata?.months?.trim();
-
+      
       if (!pseudo || !isSafe(pseudo)) {
         setResponseStatus(event, 400);
         return { error: 'Invalid pseudo' };
@@ -70,15 +70,19 @@ export default defineEventHandler(async (event) => {
         setResponseStatus(event, 400);
         return { error: 'Invalid months' };
       }
-
+      
       const months = parseInt(monthsRaw, 10);
       const duration = `${months}mo`; // LuckPerms: mo = months
 
+      if (!process.env.RCON_HOST) throw new Error('RCON_HOST manquant');
+      if (!process.env.RCON_PORT) throw new Error('RCON_PORT manquant');
+      if (!process.env.RCON_PASSWORD) throw new Error('RCON_PASSWORD manquant');
+
       try {
         const rcon = await Rcon.connect({
-          host: process.env.RCON_HOST || '127.0.0.1',
-          port: Number(process.env.RCON_PORT) || 25575,
-          password: process.env.RCON_PASSWORD || '',
+          host: process.env.RCON_HOST,
+          port: Number(process.env.RCON_PORT),
+          password: process.env.RCON_PASSWORD,
           timeout: 8000,
         });
 
