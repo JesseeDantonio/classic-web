@@ -3,11 +3,11 @@ export default defineNuxtConfig({
   modules: ['@pinia/nuxt'],
   runtimeConfig: {
     // Côté serveur uniquement
-    stripeSecretKey: '',
-    stripeWebhookSecret: '',
+    stripeSecretKey: process.env.STRIPE_SECRET_KEY,
+    stripeWebhookSecret: process.env.STRIPE_WEBHOOK_SECRET,
     // Côté client et serveur
     public: {
-      stripePublishableKey: '',
+      stripePublishableKey: process.env.STRIPE_PUBLISHABLE_KEY,
       baseUrlTest: 'http://localhost:3000',
       baseUrlProd: 'https://classicstudiohub.fr'
     }
