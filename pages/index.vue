@@ -9,7 +9,7 @@
                 primary-button-text="Jouer" primary-link="#" secondary-button-text="Boutique" secondary-link="shop"
                 image-src="/assets/img.spve.png" image-alt="Hunger Games Image"></Presentation>
             <Banner title="Rejoins le serveur dès maintenant !"
-                description="classicstudiohub.fr"></Banner>
+                ip="classicstudiohub.fr"></Banner>
             <Discover title="Découvre nos fonctionnalités !" description="Lorem ipsum dolor sit amet, consectetur adipisicing elit."></Discover>
             <Reassurance></Reassurance>
         </template>
