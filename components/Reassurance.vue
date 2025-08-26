@@ -1,25 +1,43 @@
 <template>
     <section class="reassurance">
-        <h3>Pourquoi nous faire confiance ?</h3>
+        <h3>{{ titlePrimary }}</h3>
         <div class="reassurance-items">
           <div class="reassurance-item">
-            <div class="icon">🔒</div>
-            <h4>Paiement sécurisé</h4>
-            <p>Le paiement est traité via Stripe, leader mondial du paiement en ligne. Aucune donnée bancaire n’est stockée chez nous.</p>
+            <div class="icon">{{ itemOneIcon }}</div>
+            <h4>{{ itemOneTitle }}</h4>
+            <p>{{ itemOneDescription }}</p>
           </div>
           <div class="reassurance-item">
-            <div class="icon">💬</div>
-            <h4>Support réactif</h4>
-            <p>Une question ? Une équipe est disponible sur Discord pour vous aider rapidement.</p>
+            <div class="icon">{{ itemTwoIcon }}</div>
+            <h4>{{ itemTwoTitle }}</h4>
+            <p>{{ itemTwoDescription }}</p>
           </div>
           <div class="reassurance-item">
-            <div class="icon">✅</div>
-            <h4>Accès immédiat</h4>
-            <p>Vos avantages sont activés automatiquement dès que le paiement est validé.</p>
+            <div class="icon">{{ itemThreeIcon }}</div>
+            <h4>{{ itemThreeTitle }}</h4>
+            <p>{{ itemTwoDescription }}</p>
           </div>
         </div>
       </section>
 </template>
+
+<script setup>
+
+const props = defineProps({
+  titlePrimary: String,
+  itemOneIcon: String,
+  itemOneTitle: String,
+  itemOneDescription: String,
+  itemTwoIcon: String,
+  itemTwoTitle: String,
+  itemTwoDescription: String,
+  itemThreeIcon: String,
+  itemThreeTitle: String,
+  itemThreeDescription: String,
+});
+
+
+</script>
 
 <style scoped>
 .reassurance {
