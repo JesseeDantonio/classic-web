@@ -5,7 +5,7 @@
                 <h3>{{ title }}</h3>
                 <div class="ip-container">
                     <button @click="copier" class="copy-btn">
-                        {{ copied ? "Copié !" : "classicstudiohub.fr" }}
+                        {{ copied ? "Copié !" : ip }}
                     </button>
                 </div>
             </div>
@@ -15,16 +15,14 @@
 
 <script setup>
 
-defineProps({
-    title: String,
-    description: String,
+const props = defineProps({
+  title: String,
+  ip: String,
 });
-
-const ip = "classicstudiohub.fr"
 const copied = ref(false)
 
 function copier() {
-    navigator.clipboard.writeText(ip)
+    navigator.clipboard.writeText(props.ip)
     copied.value = true
     setTimeout(() => copied.value = false, 1000)
 }
