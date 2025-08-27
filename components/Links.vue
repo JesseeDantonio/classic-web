@@ -2,12 +2,13 @@
     <div class="footer-wrapper">
         <div>
             <div class="footer-title">
-                Liens utiles
+                A propos de moi
             </div>
             <div class="footer-content">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque quisquam nihil laborum quas molestias
-                similique repellendus ab aliquid, natus nobis sint consequatur beatae sunt esse. Possimus id molestiae
-                maxime perferendis?
+                Diplômé d'un BTS en 2022 et d'une Licence CDA en 2023 (mention Félicitations),
+                je poursuis un Master Génie Logiciel. Passionné par l'automatisation,
+                je maîtrise Docker, GitLab CI/CD, Vue.js et les environnements Linux,
+                avec une solide expérience en développement full-stack.
             </div>
         </div>
         <div>
@@ -18,9 +19,10 @@
                 Suivez-nous
             </div>
             <div class="footer-contact">
-                <a href="#" target="_blank">🐦 X</a>
-                <a href="https://discord.com" target="_blank">🎮 Discord</a>
-                <a href="#" target="_blank">🎥 YouTube</a>
+                <a href="https://discord.gg/uxC5NgxvVu" target="_blank">🎮 Discord</a>
+                <a href="https://github.com/JesseeDantonio" target="_blank">
+                    <> GitHub
+                </a>
             </div>
         </div>
 
