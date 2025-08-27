@@ -120,7 +120,7 @@ const plans = [
         features: [
             'Accès contenus premium',
             'Accès prioritaire',
-            'Préfix [PREMIUM]'
+            'Préfix personalisé'
         ]
     },
     {
@@ -132,7 +132,7 @@ const plans = [
         features: [
             'Avantages Premium',
             'Entretiens développeur',
-            'Accès salons vocaux privés'
+            'Accès contenus premiumPlus'
         ]
     }
 ]
