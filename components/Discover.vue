@@ -1,7 +1,7 @@
 <template>
     <section class="discover">
         <div class="d-titleSection">
-            <h2>{{ title }}</h2>
+            <h2>{{ titlePrimary }}</h2>
             <p>{{ description }}</p>
         </div>
         <div class="d-cards">
@@ -9,11 +9,10 @@
                 <img src="../assets/img/zombie_break.png" alt="image">
                 <div class="card-content">
                     <h2>
-                        BlockBreaker
+                        {{ itemOneTitle }}
                     </h2>
                     <p>
-                        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nesciunt exercitationem iste,
-                        voluptatum, quia explicabo laboriosam rem adipisci voluptates cumque.
+                        {{ itemOneDescription }}
                     </p>
                 </div>
             </div>
@@ -21,11 +20,10 @@
                 <img src="../assets/img/araignée_boule_de_neige.png" alt="image">
                 <div class="card-content">
                     <h2>
-                        SpiderShooter
+                        {{ itemTwoTitle }}
                     </h2>
                     <p>
-                        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nesciunt exercitationem iste,
-                        voluptatum, quia explicabo laboriosam rem adipisci voluptates cumque.
+                        {{ itemTwoDescription }}
                     </p>
                 </div>
             </div>
@@ -33,11 +31,10 @@
                 <img src="../assets/img/creeper_charger.png" alt="image">
                 <div class="card-content">
                     <h2>
-                        SmartCreeper
+                        {{ itemThreeTitle }}
                     </h2>
                     <p>
-                        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nesciunt exercitationem iste,
-                        voluptatum, quia explicabo laboriosam rem adipisci voluptates cumque.
+                        {{ itemThreeDescription }}
                     </p>
                 </div>
             </div>
@@ -45,11 +42,10 @@
                 <img src="../assets/img/coffres_parachute.png" alt="image">
                 <div class="card-content">
                     <h2>
-                        RandomChest
+                        {{ itemFourTitle }}
                     </h2>
                     <p>
-                        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nesciunt exercitationem iste,
-                        voluptatum, quia explicabo laboriosam rem adipisci voluptates cumque.
+                        {{ itemFourDescription }}
                     </p>
                 </div>
             </div>
@@ -60,8 +56,16 @@
 <script setup>
 
 defineProps({
-    title: String,
+    titlePrimary: String,
     description: String,
+    itemOneTitle: String,
+    itemOneDescription: String,
+    itemTwoTitle: String,
+    itemTwoDescription: String,
+    itemThreeTitle: String,
+    itemThreeDescription: String,
+    itemFourTitle: String,
+    itemFourDescription: String,
 });
 </script>
 
