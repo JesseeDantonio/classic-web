@@ -60,4 +60,18 @@ import Presentation from '../components/Presentation.vue';
 import Banner from '@/components/Banner.vue';
 import Discover from '@/components/Discover.vue';
 import Reassurance from '@/components/Reassurance.vue';
+
+useSeoMeta({
+  title: 'HungerGames Minecraft - ClassicStudioHub',
+  description: "Découvrez notre plugin Minecraft HungerGames : survie, blocs destructibles, fonctionnalités uniques, parties jusqu'à 100 joueurs. Rejoignez ClassicStudioHub pour une expérience intense et stratégique !",
+  ogTitle: 'HungerGames Minecraft - ClassicStudioHub',
+  ogDescription: "Notre plugin Minecraft revisite le mode HungerGames : nouveaux mobs, coffres aléatoires, parties stratégiques. Rejoignez-nous et devenez le dernier survivant !",
+  ogImage: '/assets/img.spve.png', // chemin absolu si possible, ex : https://classicstudiohub.fr/assets/img.spve.png
+  ogUrl: 'https://classicstudiohub.fr',
+  twitterCard: 'summary_large_image',
+  twitterTitle: 'HungerGames Minecraft - ClassicStudio',
+  twitterDescription: "Jouez à HungerGames sur Minecraft avec ClassicStudio : mécaniques innovantes, serveurs stables.",
+  twitterImage: '/assets/img.spve.png',
+  robots: 'index, follow'
+})
 </script>

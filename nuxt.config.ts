@@ -1,6 +1,6 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
-  modules: ['@pinia/nuxt'],
+  modules: ['@pinia/nuxt', '@nuxt/image'],
   runtimeConfig: {
     // Côté serveur uniquement
     stripeSecretKey: process.env.STRIPE_SECRET_KEY,

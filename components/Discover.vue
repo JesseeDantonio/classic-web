@@ -6,7 +6,7 @@
         </div>
         <div class="d-cards">
             <div class="d-card">
-                <img src="../assets/img/zombie_break.png" alt="image">
+                <NuxtImg src="/img/zombie_break.png" alt="image"></NuxtImg>
                 <div class="card-content">
                     <h2>
                         {{ itemOneTitle }}
@@ -17,7 +17,7 @@
                 </div>
             </div>
             <div class="d-card">
-                <img src="../assets/img/araignée_boule_de_neige.png" alt="image">
+                <NuxtImg src="/img/araignée_boule_de_neige.png" alt="image"></NuxtImg>
                 <div class="card-content">
                     <h2>
                         {{ itemTwoTitle }}
@@ -28,7 +28,7 @@
                 </div>
             </div>
             <div class="d-card">
-                <img src="../assets/img/creeper_charger.png" alt="image">
+                <NuxtImg src="/img/creeper_charger.png" alt="image"></NuxtImg>
                 <div class="card-content">
                     <h2>
                         {{ itemThreeTitle }}
@@ -39,7 +39,7 @@
                 </div>
             </div>
             <div class="d-card">
-                <img src="../assets/img/coffres_parachute.png" alt="image">
+                <NuxtImg src="/img/coffres_parachute.png" alt="image"></NuxtImg>
                 <div class="card-content">
                     <h2>
                         {{ itemFourTitle }}
@@ -54,6 +54,8 @@
 </template>
 
 <script setup>
+import { NuxtImg } from '#components';
+
 
 defineProps({
     titlePrimary: String,
@@ -81,7 +83,6 @@ defineProps({
     margin-top: 4vh;
     display: flex;
     justify-content: space-around;
-
     flex-wrap: wrap;
 }
 
