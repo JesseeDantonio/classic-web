@@ -17,7 +17,7 @@
             
             <Banner 
                 title="Rejoins le serveur dès maintenant !" 
-                ip="classicstudiohub.fr">
+                ip="hg.classicstudiohub.fr">
             </Banner>
             
             <Discover 
