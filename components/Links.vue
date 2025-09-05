@@ -5,7 +5,7 @@
                 A propos de moi
             </div>
             <div class="footer-content">
-                Diplômé d'un BTS en 2022 et d'une Licence CDA en 2023 (mention Félicitations),
+                Diplômé d'un BTS en 2022 et d'une Licence CDA en 2023,
                 je poursuis un Master Génie Logiciel. Passionné par l'automatisation,
                 je maîtrise Docker, GitLab CI/CD, Vue.js et les environnements Linux,
                 avec une solide expérience en développement full-stack.
