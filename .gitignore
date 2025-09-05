@@ -1,6 +1,6 @@
 # Nuxt dev/build outputs
 .output
-assets
+public/img
 .data
 .nuxt
 .nitro
