@@ -10,7 +10,7 @@
             <NuxtImg class="p-img" src="/img/presentation.png" alt="Mon image" format="webp" loading="lazy"></NuxtImg>
             <div v-if="error">
                 <div class="mc-server-wrapper" :style="error ? { height: '100%' } : {}">
-                    <div class="mc-server-card" :style="error ? { justifyContent: 'center' } : {}">
+                    <div class="mc-server-card" :style="error ? { justifyContent: 'center', height: '100%' } : {}">
                         <span style="color:red">Erreur de connexion au serveur Minecraft !</span>
                     </div>
                 </div>
@@ -107,6 +107,7 @@ defineProps({
     display: flex;
     align-items: center;
     justify-content: flex-start;
+    height: 100%;
 }
 
 .mc-server-card {
