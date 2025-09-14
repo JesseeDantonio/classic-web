@@ -114,7 +114,7 @@ defineProps({
     background: linear-gradient(120deg, #20253a 80%, #232946 100%);
     border: 1px solid #4261fc33;
     padding: 1.6rem 1rem 1.2rem 1rem;
-    box-shadow: 0 4px 24px 0 rgba(0,0,0,0.16);
+    box-shadow: 0 4px 24px 0 rgba(0, 0, 0, 0.16);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -160,6 +160,7 @@ defineProps({
     letter-spacing: 0.01em;
     text-shadow: 0 1px 8px #0005;
 }
+
 .mc-server-address {
     color: #8fd3ff;
     font-size: 1.08rem;
