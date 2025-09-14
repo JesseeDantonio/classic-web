@@ -8,20 +8,29 @@
                 {{ description }}
             </p>
             <NuxtImg class="p-img" src="/img/presentation.png" alt="Mon image" format="webp" loading="lazy"></NuxtImg>
-            <div class="mc-server-wrapper">
-                <div class="mc-server-card">
-                    <div v-html="safeMotdHtml"  class="mc-server-title"></div>
-                    <div v-if="players != undefined || maxPlayers != undefined" class="mc-server-bar">
-                        <div class="mc-server-bar-fill"
-                            :style="{ width: ((players ?? 0) / (maxPlayers ?? 1) * 100) + '%' }"></div>
+            <div v-if="error">
+                <div class="mc-server-wrapper" :style="error ? { height: '100%' } : {}">
+                    <div class="mc-server-card" :style="error ? { justifyContent: 'center' } : {}">
+                        <span style="color:red">Erreur de connexion au serveur Minecraft !</span>
                     </div>
-                    <div v-else style="color: red;">
-                        Serveur déconnecté
+                </div>
+            </div>
+            <div v-else>
+                <div class="mc-server-wrapper">
+                    <div class="mc-server-card">
+                        <div v-html="safeMotdHtml" class="mc-server-title"></div>
+                        <div v-if="players != undefined || maxPlayers != undefined" class="mc-server-bar">
+                            <div class="mc-server-bar-fill"
+                                :style="{ width: ((players ?? 0) / (maxPlayers ?? 1) * 100) + '%' }"></div>
+                        </div>
+                        <div v-else style="color: red;">
+                            Serveur déconnecté
+                        </div>
+                        <div v-if="players != undefined || maxPlayers != undefined" class="mc-server-players">
+                            {{ players }}/{{ maxPlayers }} joueurs en ligne
+                        </div>
+                        <div v-html="safeVersionHtml" class="mc-server-address"></div>
                     </div>
-                    <div v-if="players != undefined || maxPlayers != undefined" class="mc-server-players">
-                        {{ players }}/{{ maxPlayers }} joueurs en ligne
-                    </div>
-                    <div v-html="safeVersionHtml" class="mc-server-address"></div>
                 </div>
             </div>
         </div>
@@ -45,8 +54,8 @@ const safeMotdHtml = ref('');
 
 
 watchEffect(async () => {
-  safeMotdHtml.value = await sanitizeHtml(rawMotdHtml.value);
-  safeVersionHtml.value = await sanitizeHtml(rawVersionHtml.value);
+    safeMotdHtml.value = await sanitizeHtml(rawMotdHtml.value);
+    safeVersionHtml.value = await sanitizeHtml(rawVersionHtml.value);
 });
 
 defineProps({
@@ -101,16 +110,17 @@ defineProps({
 }
 
 .mc-server-card {
-    background: #222739;
-    border: 1px solid #68708c30;
-    padding: 1rem;
-    box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.10);
+    background: linear-gradient(120deg, #20253a 80%, #232946 100%);
+    border: 1px solid #4261fc33;
+    padding: 1.6rem 1rem 1.2rem 1rem;
+    box-shadow: 0 4px 24px 0 rgba(0,0,0,0.16);
     display: flex;
     flex-direction: column;
     align-items: center;
-    border-radius: 1rem;
-    height: 100%;
+    border-radius: 1.2rem;
     width: 100%;
+    margin: 0 auto;
+    backdrop-filter: blur(2px);
 }
 
 .mc-server-title {
@@ -141,18 +151,21 @@ defineProps({
 
 .mc-server-players {
     color: #dbe6ff;
-    font-size: 1.13rem;
-    margin-bottom: 0.15rem;
-    margin-top: 0.4rem;
+    font-size: 1.18rem;
+    margin-bottom: 0.12rem;
+    margin-top: 0.5rem;
     text-align: center;
+    font-weight: 600;
+    letter-spacing: 0.01em;
+    text-shadow: 0 1px 8px #0005;
 }
-
 .mc-server-address {
-    color: #b4c6ef;
+    color: #8fd3ff;
     font-size: 1.08rem;
     margin-top: 0.2rem;
     text-align: center;
-    letter-spacing: 0.01em;
+    letter-spacing: 0.03em;
+    opacity: .95;
 }
 
 @media screen and (max-width: 900px) {
