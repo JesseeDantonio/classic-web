@@ -10,27 +10,44 @@
             <NuxtImg class="p-img" src="/img/presentation.png" alt="Mon image" format="webp" loading="lazy"></NuxtImg>
             <div class="mc-server-wrapper">
                 <div class="mc-server-card">
-                    <div class="mc-server-title">H.G #01</div>
+                    <div v-html="safeMotdHtml"  class="mc-server-title"></div>
                     <div v-if="players != undefined || maxPlayers != undefined" class="mc-server-bar">
-                        <div class="mc-server-bar-fill" :style="{ width: (players / maxPlayers * 100) + '%' }"></div>
+                        <div class="mc-server-bar-fill"
+                            :style="{ width: ((players ?? 0) / (maxPlayers ?? 1) * 100) + '%' }"></div>
                     </div>
                     <div v-else style="color: red;">
                         Serveur déconnecté
                     </div>
-                    <div v-if="players" class="mc-server-players">
+                    <div v-if="players != undefined || maxPlayers != undefined" class="mc-server-players">
                         {{ players }}/{{ maxPlayers }} joueurs en ligne
                     </div>
-                    <div class="mc-server-address">hg.classicstudiohub.fr</div>
+                    <div v-html="safeVersionHtml" class="mc-server-address"></div>
                 </div>
             </div>
         </div>
     </section>
 </template>
 
-<script setup>
+<script setup lang="ts">
+import type { McstatusResponse } from '~/iface/McstatusResponse';
+import { sanitizeHtml } from '~/util/sanitize';
+import { ref, computed, watchEffect } from 'vue';
 
-let players = undefined
-let maxPlayers = undefined
+const { data, pending, error } = await useFetch<McstatusResponse>('/api/mc-status');
+
+// computed pour réactivité
+const players = computed(() => data.value?.players?.online ?? 0);
+const maxPlayers = computed(() => data.value?.players?.max ?? 1); // pour éviter division par zéro
+const rawMotdHtml = computed(() => data.value?.motd?.html ?? '');
+const rawVersionHtml = computed(() => data.value?.version?.name_html ?? '');
+const safeVersionHtml = ref('');
+const safeMotdHtml = ref('');
+
+
+watchEffect(async () => {
+  safeMotdHtml.value = await sanitizeHtml(rawMotdHtml.value);
+  safeVersionHtml.value = await sanitizeHtml(rawVersionHtml.value);
+});
 
 defineProps({
     title: String,
@@ -98,7 +115,7 @@ defineProps({
 
 .mc-server-title {
     color: #dbe6ff;
-    font-size: 2rem;
+    font-size: 1.2rem;
     font-weight: 400;
     margin-top: 0.2rem;
     text-align: center;
@@ -155,10 +172,10 @@ defineProps({
 
     .p-title {
         font-size: 10vw
-
     }
 
-    .p-text, .p-title {
+    .p-text,
+    .p-title {
         padding: 1vh;
     }
 
